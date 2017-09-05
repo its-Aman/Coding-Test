@@ -1,18 +1,27 @@
   /* You can add global styles to this file, and also import other style files */
 
-@import url('~https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css');
-@font-face {
-  font-family: "customFont";
-  src: url("./assets/fonts/customFont.woff2") format("woff2");
-}
-
-* {
-  font-family: customFont !important;
-}
-
-@media screen and (min-width: 576px) {
-  body {
-    padding: 5em;
-    background: black;
+  @import url('~https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css');
+  @font-face {
+    font-family: "customFont";
+    src: url("./assets/fonts/customFont.woff2") format("woff2");
   }
-}
+
+  * {
+    font-family: customFont !important;
+  }
+
+  body {
+    padding: 1em 0em 2em 0em;
+  }
+
+  @media screen and (min-width: 576px) {
+    body {
+      background: white;
+      padding: 1em 5em 2em 5em;
+    }
+  }
+  /* Global CSS Rules */
+
+  .text-align-center {
+    text-align: center;
+  }

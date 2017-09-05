@@ -1,17 +1,32 @@
+import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { EmployeeService } from './employee.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { EmployeeComponent } from './employee/employee.component';
+
+const routes:Routes=[
+  {path: ' ', component: EmployeeComponent},
+  {path: 'add', component: AddEmployeeComponent},
+  {path: '**', component: EmployeeComponent},
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddEmployeeComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
