@@ -13,7 +13,7 @@
     <div class="form-group">
       <label for="addInputEmail">Email address</label>
       <input type="email" class="form-control" id="addInputEmail" formControlName="email" aria-describedby="emailHelp" placeholder="Enter E-mail...">
-      <small id="emailHelp" *ngIf="!this.employeeForm.controls['email'].valid && this.employeeForm.controls['email'].value && this.employeeForm.controls['email'].errors" class="form-text text-danger">Not a Valid email</small>      
+      <small id="emailHelp" *ngIf="!this.employeeForm.controls['email'].valid && this.employeeForm.controls['email'].errors" class="form-text text-danger">Not a Valid email</small>      
     </div>
     <div class="form-group">
       <label for="addInputAddress">Address</label>

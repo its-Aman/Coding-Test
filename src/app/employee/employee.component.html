@@ -60,7 +60,7 @@
           <div class="form-group">
             <label for="updateInputEmail">Email address</label>
             <input type="email" class="form-control" id="updateInputEmail" formControlName="email" aria-describedby="emailHelp" placeholder="Enter E-mail...">
-            <small id="emailHelp" *ngIf="this.employeeForm.controls['email'].invalid && this.employeeForm.controls['email'].value" class="form-text text-danger">Not a Valid email</small>
+            <small id="emailHelp" *ngIf="!this.employeeForm.controls['email'].valid && this.employeeForm.controls['email'].errors" class="form-text text-danger">Not a Valid email</small>      
           </div>
           <div class="form-group">
             <label for="updateInputAddress">Address</label>
@@ -78,6 +78,7 @@
   </div>
 </div>
 
+<!-- Modal for delete conformation -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -11,23 +11,24 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeeComponent implements OnInit {
   employees: Array<any> = [];
   public employeeForm:FormGroup;
-  
+
   constructor(private service:EmployeeService, private route:Router, private fb:FormBuilder,) { 
-  this.employeeForm = this.fb.group({
-    'name':[null,[Validators.required]],
-    'phone':[null,[Validators.required,Validators.maxLength(10), Validators.minLength(10)]],
-    'email':[null,[Validators.required]],
-    'address':[null,[Validators.required]],
-    'id':[Math.floor(Math.random() * 100) + 1 ]
-  });
+    this.service.getEmployee()
+    .then(
+      (res)=>{
+        this.employees=res;
+      });
   }
-    
-    ngOnInit(): void {
-      this.service.getEmployee().then(
-        (res)=>{
-          this.employees=res;
-        });
-    }
+  
+  ngOnInit(): void {
+    this.employeeForm = this.fb.group({
+      'name':[null,[Validators.required]],
+      'phone':[null,[Validators.required,Validators.maxLength(10), Validators.minLength(10)]],
+      'email':[null,[Validators.required]],
+      'address':[null,[Validators.required]],
+      'id':[Math.floor(Math.random() * 100) + 1 ]
+    });
+  }
 
     delete(){
       this.service.deleteEmployee(this.employeeForm.controls['id'].value)

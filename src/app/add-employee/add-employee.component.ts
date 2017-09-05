@@ -11,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class AddEmployeeComponent implements OnInit {
   public employeeForm:FormGroup;
   
-  constructor(private fb:FormBuilder, private service:EmployeeService, private route:Router) {
+  constructor(private fb:FormBuilder, private service:EmployeeService, private route:Router) {}
+
+  ngOnInit() {
     this.employeeForm = this.fb.group({
       'name':[null,[Validators.required]],
       'phone':[null,[Validators.required,Validators.maxLength(10), Validators.minLength(10)]],
@@ -19,9 +21,6 @@ export class AddEmployeeComponent implements OnInit {
       'address':[null,[Validators.required]],
       'id':[Math.floor(Math.random() * 100) + 1 ]
     });
-   }
-
-  ngOnInit() {
   }
   
   submitEmployee(){
