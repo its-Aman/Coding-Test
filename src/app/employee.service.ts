@@ -1,19 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { Headers, Http, Request, RequestMethod, RequestOptions, Response } from '@angular/http';
-import { Route, Router } from "@angular/router";
-import { Observable } from 'rxjs/Rx';
-import * as Rx from 'rxjs/Rx';
-import 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-
 @Injectable()
 export class EmployeeService {
   private EmployeeMockDB:any[];
 
-  options: RequestOptions;
-
-  constructor(public http: Http) {
+  constructor() {
 
     if (localStorage.getItem('employee')) {
       this.EmployeeMockDB = JSON.parse(localStorage.getItem('employee'))

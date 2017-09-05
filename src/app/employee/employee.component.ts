@@ -38,6 +38,15 @@ export class EmployeeComponent implements OnInit {
       });
     }
 
+    checkNumberLength(ip){
+      this.service.log('in ip');
+      if(this.employeeForm.controls['phone'].value<9999999999 && this.employeeForm.controls['phone'].value>1000000000 ) return true;
+      else if (typeof this.employeeForm.controls['phone'].value !== typeof 10){
+        this.employeeForm.controls['phone'].setValue(null);
+      } else 
+        this.employeeForm.controls['phone'].setValue(parseInt(this.employeeForm.controls['phone'].value.toString().slice(0,10)))
+    }
+
     updateEmployee(){ 
       this.service.updateEmployee(this.employeeForm.value)
       .then((e)=>{

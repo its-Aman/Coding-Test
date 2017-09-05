@@ -15,7 +15,7 @@ export class AddEmployeeComponent implements OnInit {
     this.employeeForm = this.fb.group({
       'name':[null,[Validators.required]],
       'phone':[null,[Validators.required,Validators.maxLength(10), Validators.minLength(10)]],
-      'email':[null,[Validators.required, Validators.pattern("[a-zA-Z._0-9]+@[a-zA-Z]+.[a-zA-Z]+")]],
+      'email':[null,[Validators.required, Validators.pattern(`^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$`)]],
       'address':[null,[Validators.required]],
       'id':[Math.floor(Math.random() * 100) + 1 ]
     });
@@ -37,7 +37,10 @@ export class AddEmployeeComponent implements OnInit {
 
   checkNumberLength(ip){
     this.service.log('in ip');
-    if(this.employeeForm.controls['phone'].value<9999999999) return true;
-    else this.employeeForm.controls['phone'].setValue(this.employeeForm.controls['phone'].value.toString().slice(0,10))
+    if(this.employeeForm.controls['phone'].value<9999999999 && this.employeeForm.controls['phone'].value>1000000000 ) return true;
+    else if (typeof this.employeeForm.controls['phone'].value !== typeof 10){
+      this.employeeForm.controls['phone'].setValue(0);
+    } else 
+      this.employeeForm.controls['phone'].setValue(parseInt(this.employeeForm.controls['phone'].value.toString().slice(0,10)))
   }
 }

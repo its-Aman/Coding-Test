@@ -56,13 +56,11 @@
             <input type="number" class="form-control" id="updateInputNumber" min="1000000000" max="9999999999" (keyup)="checkNumberLength()"
               formControlName="phone" aria-describedby="phoneHelp" placeholder="Phone Number of Employee...">
             <small id="phoneHelp" *ngIf="!this.employeeForm.controls['phone'].valid" class="form-text text-danger">Phone Required.</small>
-            <!-- <small id="phoneHelp" *ngIf="this.employeeForm.controls['phone'].errors.minLength || this.employeeForm.controls['phone'].errors.maxLength" class="form-text text-danger">Must be of 10 digit.</small> -->
           </div>
           <div class="form-group">
             <label for="updateInputEmail">Email address</label>
             <input type="email" class="form-control" id="updateInputEmail" formControlName="email" aria-describedby="emailHelp" placeholder="Enter E-mail...">
             <small id="emailHelp" *ngIf="this.employeeForm.controls['email'].invalid && this.employeeForm.controls['email'].value" class="form-text text-danger">Not a Valid email</small>
-            <!-- <small id="emailHelp" *ngIf="!this.employeeForm.controls['email'].valid" class="form-text text-danger">Valid email is required</small>       -->
           </div>
           <div class="form-group">
             <label for="updateInputAddress">Address</label>
